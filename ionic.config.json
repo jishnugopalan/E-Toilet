@@ -1,0 +1,7 @@
+{
+  "name": "etoilet",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

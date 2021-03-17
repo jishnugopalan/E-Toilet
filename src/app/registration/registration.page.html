@@ -1,0 +1,58 @@
+
+ 
+<ion-content class="ion-padding" color="light">
+<ion-card>
+ <img src="../../assets/img/photo3.jpg" />
+<ion-card-header>
+          
+          <ion-card-title>Register Now</ion-card-title>
+  </ion-card-header>
+  <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+ 
+    <ion-card>
+      <ion-item>
+        <ion-label class="testclass" position="floating" >Name<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="name" inputmode="text"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.name">
+        <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating">Email<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="email" inputmode="text"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.email">
+        <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating">Phone number<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="phone" inputmode="tel"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.phone">
+        <ng-container *ngIf="phone.hasError(error.type) && (phone.dirty || phone.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+    </ion-card>
+ <ion-item>
+  <ion-label>Register as</ion-label>
+  <ion-select formControlName="usertype">
+    <ion-select-option value="user">User</ion-select-option>
+    <ion-select-option value="muncipality">Muncipality</ion-select-option>
+    
+  </ion-select>
+</ion-item>
+    <!--<ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Login</ion-button>-->
+    <ion-button expand="block" type="button" (click)="register()" [disabled]="!credentialsForm.valid">Register</ion-button>
+ <ion-text routerLink="/login" color="primary"><center><h4>Already have an account</h4></center></ion-text>
+  </form>
+  </ion-card>
+</ion-content>

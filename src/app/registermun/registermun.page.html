@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Register Muncipality</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+<ion-card>
+ <img src="../../assets/img/photo3.jpg" />
+<ion-card-header>
+          
+          <ion-card-title>Register Now</ion-card-title>
+  </ion-card-header>
+  <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+ 
+    <ion-card>
+      <ion-item>
+        <ion-label class="testclass" position="floating" >Muncipality Name<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="name" inputmode="text"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.name">
+        <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+    </ion-card>
+    <ion-card>
+     <ion-item>
+  <ion-label>District</ion-label>
+  <ion-select formControlName="district">
+    <ion-select-option value="Ernakulam">Ernakulam</ion-select-option>
+    <ion-select-option value="Kottayam">Kottayam</ion-select-option>
+    
+  </ion-select>
+</ion-item>
+    </ion-card>
+     <ion-card>
+     <ion-item>
+  <ion-label>City</ion-label>
+  <ion-select formControlName="city">
+    <ion-select-option value="Kothamangalam">Kothamangalam</ion-select-option>
+    <ion-select-option value="Piravom">Piravam</ion-select-option>
+    <ion-select-option value="Muvatupuzha">Muvatupuzha</ion-select-option>
+
+    
+  </ion-select>
+</ion-item>
+    </ion-card>
+   
+    <ion-card>
+        <ion-item>
+          <ion-label  color="primary" stacked>Upload the document</ion-label>
+          <input type="file" formControlName="idproof"  (change)="encodeImageFileAsURL($event)" id="inputFileToLoad">
+        </ion-item>
+      </ion-card>
+    
+    <!--<ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Login</ion-button>-->
+    <ion-button expand="block" type="button" (click)="register()" [disabled]="!credentialsForm.valid">Register</ion-button>
+ <ion-text routerLink="/login" color="primary"><center><h4>Already have an account</h4></center></ion-text>
+  </form>
+  </ion-card>
+</ion-content>

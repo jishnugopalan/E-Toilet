@@ -1,0 +1,48 @@
+
+
+<ion-content class="ion-padding">
+ <div id="container">
+  <ion-card>
+  
+  <ion-img src="../../assets/img/etoilet.jpg"></ion-img>
+    <ion-text color="primary"><div class="ion-text-center"><h4>Login</h4></div></ion-text>
+    <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+      <ion-card>
+      <ion-item>
+        <ion-label class="testclass" position="floating"><ion-icon name="mail"></ion-icon>Email</ion-label>
+        <ion-input formControlName="email" inputmode="text"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.email">
+        <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label class="testclass" position="floating"><ion-icon name="key"></ion-icon>Password</ion-label>
+        
+        <ion-input formControlName="password" type="password" show-hide-input></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.password">
+        <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+    </ion-card>
+    <div class="ion-text-right"><ion-text color="primary" routerLink="/forgotpassword">Forgot password</ion-text></div>
+    <ion-card>
+      <div class="ion-no-padding">
+        <ion-button [disabled]="!registrationForm.valid" color="success" expand="block" type="submit" class="ion-no-margin">Login</ion-button>
+      </div>
+      
+      
+    </ion-card>
+    <div class="ion-text-center"><ion-text color="primary" routerLink="/registration">I don't have an account</ion-text></div>
+   
+    </form>
+   
+  </ion-card>
+  
+</div>
+</ion-content>

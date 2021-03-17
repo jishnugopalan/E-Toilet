@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title><ion-icon name="arrow-back-outline" routerLink="/userhome"></ion-icon>View Reviews</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+<ion-card>
+
+</ion-card>
+<ion-card>
+<ion-card-title>View Reviews</ion-card-title>
+<ion-card>
+  <ion-text color="primary">Select E-Toilet City</ion-text>
+<ion-select (ionChange)="changed()" [(ngModel)]="toiletid">
+    <ion-select-option  *ngFor="let c of city" value="{{c._id}}">{{c.cityname}}</ion-select-option>
+  </ion-select>
+  </ion-card>
+  <ion-card *ngFor="let rev of review">
+  <ion-card-content>
+  <h3><b>{{rev.userdetails[0].name}}</b> Rated {{rev.star}}<ion-icon name="star" color="warning"></ion-icon></h3>
+  <p>{{rev.content}}</p>
+  <p>{{rev.datetime | date:'dd/MM/yyyy'}}</p>
+  </ion-card-content>
+  </ion-card>
+</ion-card>
+
+</ion-content>

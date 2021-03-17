@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title><ion-icon name="arrow-back-outline" routerLink="/userhome"></ion-icon>Add Toilet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div #mapElement class="map" id="map"></div>
+<ion-card>
+<ion-label color="primary">Add City Name</ion-label>
+<ion-input type="text" placeholder="City name" [(ngModel)]="city"></ion-input>
+<ion-button (click)="registerToilet()">Submit Location</ion-button>
+</ion-card>
+
+
+</ion-content>
+<ion-footer>
+<ion-toolbar>
+
+</ion-toolbar>
+</ion-footer>

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title><ion-icon name="arrow-back-outline" routerLink="/userhome"></ion-icon>All Muncipalities</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+<ion-card *ngFor="let c of mun">
+<img src="{{c.details[0].idproof}}">
+<ion-card-title>Details</ion-card-title>
+<h4><ion-text color="primary"
+>
+Muncipality:{{c.details[0].name}}<br>
+City:{{c.details[0].city}}<br>
+District:{{c.details[0].district}}<br>
+Manger name:{{c.name}}<br>
+Email:{{c.email}}<br>
+Phone:{{c.phone}}<br>
+</ion-text></h4>
+</ion-card>
+
+</ion-content>

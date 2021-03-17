@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title><ion-icon name="arrow-back-outline" routerLink="/userhome"></ion-icon>Add Review</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+<ion-card>
+<form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+ 
+    
+    <ion-card>
+     <ion-item>
+  <ion-label>Select Review Mode</ion-label>
+  <ion-select formControlName="mode">
+    <ion-select-option value="c" >Complaint</ion-select-option>
+    <ion-select-option value="r" >Review</ion-select-option>
+    
+  </ion-select>
+</ion-item>
+   
+     <ion-item>
+  <ion-label>Select E-Toilet City</ion-label>
+  <ion-select formControlName="city">
+    <ion-select-option *ngFor="let c of city" value="{{c._id}}">{{c.cityname}}</ion-select-option>
+    
+    
+  </ion-select>
+</ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label class="testclass" position="floating" >Add Review/Complaint<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="name" inputmode="text"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.name">
+        <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+    </ion-card>
+    
+     <ion-card>
+    <ion-item>
+      <ion-label>Rate this toilet</ion-label>
+      <ion-icon name="star"  (onmouseover)="starmark(this)"   (click)="starmark(1)" value="1" id="1rt"></ion-icon>
+      <ion-icon name="star"  (onmouseover)="starmark(this)"  (click)="starmark(2)" id="2rt"></ion-icon>
+      <ion-icon name="star" (onmouseover)="starmark(this)"  (click)="starmark(3)" id="3rt"></ion-icon>
+      <ion-icon name="star"  (onmouseover)="starmark(this)"  (click)="starmark(4)" id="4rt"></ion-icon>
+      <ion-icon name="star"  (onmouseover)="starmark(this)"  (click)="starmark(5)" id="5rt"></ion-icon>
+      <!-- <img style="width: 50px; height: 50px;" src="../../assets/img/smile 5.png">
+      <img style="width: 50px; height: 50px;" src="../../assets/img/smile 4.jpg">
+      <img style="width: 50px; height: 50px;" src="../../assets/img/smile 3.webp">
+      <img style="width: 50px; height: 50px;" src="../../assets/img/smile 2.jpg">
+      <img style="width: 50px; height: 50px;" src="../../assets/img/smile 1.jfif"> -->
+      
+    </ion-item>
+    </ion-card>
+    <!--<ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Login</ion-button>-->
+    <ion-button expand="block" type="button" (click)="submit()" [disabled]="!credentialsForm.valid">Submit</ion-button>
+  </form>
+</ion-card>
+
+</ion-content>

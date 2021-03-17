@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title><ion-icon name="arrow-back-outline" routerLink="/userhome"></ion-icon>Complaints</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+<ion-card>
+<ion-label><b>Select E-Toilet City</b></ion-label>
+<ion-select [(ngModel)]="toiletid" (ionChange)="viewcmp()">
+    <ion-select-option  *ngFor="let c of toilet" value="{{c._id}}">{{c.cityname}}</ion-select-option>
+  </ion-select>
+  </ion-card>
+
+  <ion-card *ngFor="let s of cmp">
+  <h4><b>{{s.userdetails[0].name}}</b></h4>
+  <p><ion-text color="primary">{{s.content}}</ion-text></p>
+<p>{{s.datetime | date:'dd/MM/yyyy'}}
+{{s.datetime | date:'hh:mm'}}</p>
+
+  </ion-card>
+</ion-content>

@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title><ion-icon name="home"></ion-icon>HOME</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+<ion-text color="primary">
+  <center><h1>Welcome To E-Toilet App</h1></center>
+</ion-text>
+ <ion-img src="../../assets/img/photo3.jpg"></ion-img>
+<ion-card *ngIf="mun">
+<ion-text (click)="gotolocation()" color="danger"><h3> <ion-icon name="add-circle"></ion-icon>Add E-Toilet</h3></ion-text>
+<ion-text (click)="viewtoilet()" color="danger"><h3> <ion-icon name="accessibility"></ion-icon>View All E-Toilet</h3></ion-text>
+<ion-text (click)="gotoreview()" color="danger"><h3> <ion-icon name="star"></ion-icon>View Reviews</h3></ion-text>
+<ion-text (click)="viewcomplaint()" color="danger"><h3> <ion-icon name="newspaper"></ion-icon>View Complaints</h3></ion-text>
+<ion-text (click)="deletetoilet()" color="danger"><h3> <ion-icon name="trash"></ion-icon>Delete E-Toilet</h3></ion-text>
+
+
+
+
+
+
+</ion-card>
+<ion-card *ngIf="admin">
+<center><h3><ion-card-title color="danger">Admin Pannel</ion-card-title></h3></center>
+<ion-card-content>
+<ion-button (click)="approvemun()" color="danger">Approve Muncipality<ion-badge color="primary">{{count}}</ion-badge></ion-button>
+
+    <ion-button (click)="gotoadminloc()" color="danger">View All Toilets</ion-button>
+</ion-card-content>
+</ion-card>
+<ion-card *ngIf="user">
+<ion-card-content>
+
+    <ion-button (click)="viewusertoilet()" color="primary">View Toilets</ion-button>
+    <ion-button (click)="addreview()" color="primary">Add Review/Complaints</ion-button>
+    <ion-button (click)="viewreview()" color="primary">View Reviews</ion-button>
+
+
+
+</ion-card-content>
+</ion-card>
+
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+<ion-tabs *ngIf="user">
+  <!-- Tab bar -->
+  <ion-tab-bar slot="bottom" color="primary">
+    
+
+   
+
+<ion-tab-button (click)="changepassword()">
+     <ion-icon name="lock-closed"></ion-icon>
+      <ion-label>Change Password</ion-label>
+    </ion-tab-button>
+     <ion-tab-button (click)="viewabout()">
+      <ion-icon name="information"></ion-icon>
+      <ion-label>About</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="logout()">
+     <ion-icon name="log-out"></ion-icon>
+      <ion-label>Logout</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+  
+</ion-tabs>
+<ion-tabs *ngIf="mun">
+  <!-- Tab bar -->
+  <ion-tab-bar slot="bottom" color="primary">
+    
+
+   
+<ion-tab-button (click)="viewnotification()">
+     <ion-icon name="notifications"></ion-icon>
+      <ion-label>Notification</ion-label>
+    </ion-tab-button>
+    
+
+
+    <ion-tab-button (click)="changepassword()">
+     <ion-icon name="lock-closed"></ion-icon>
+      <ion-label>Change Password</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="logout()">
+     <ion-icon name="log-out-outline"></ion-icon>
+      <ion-label>Logout</ion-label>
+    </ion-tab-button>
+
+     <ion-tab-button (click)="viewabout()">
+      <ion-icon name="information"></ion-icon>
+      <ion-label>About</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+<ion-tabs *ngIf="admin">
+  <!-- Tab bar -->
+  <ion-tab-bar slot="bottom" color="primary">
+    
+
+     <ion-tab-button (click)="viewabout()">
+      <ion-icon name="alert"></ion-icon>
+      <ion-label>About</ion-label>
+    </ion-tab-button>
+
+   
+<ion-tab-button (click)="changepassword()">
+     <ion-icon name="lock-closed"></ion-icon>
+      <ion-label>Change Password</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="logout()">
+      <ion-icon name="log-out"></ion-icon>
+      <ion-label>Logout</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+  
+</ion-tabs>
+    </ion-toolbar>
+</ion-footer>

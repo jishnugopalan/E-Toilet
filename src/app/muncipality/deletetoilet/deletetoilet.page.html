@@ -1,0 +1,16 @@
+<ion-header>
+ <ion-toolbar color="success">
+    <ion-title><ion-icon name="arrow-back-outline" routerLink="/userhome"></ion-icon>Delete E-Toilet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card *ngFor="let t of toilet">
+<ion-item>
+{{t.cityname}}
+<ion-item sloat="end" (click)="delete(t._id)">
+<ion-icon name="trash"color="danger"></ion-icon>
+</ion-item>
+</ion-item>
+</ion-card>
+</ion-content>
